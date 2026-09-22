@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+# Flutter
+mobile/build/
+mobile/.dart_tool/
+mobile/.idea/
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/ios/Flutter/ephemeral/
+mobile/android/.gradle/
+mobile/android/local.properties

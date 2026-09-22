@@ -1,0 +1,39 @@
+# render.yaml — "Blueprint" ประกาศ infrastructure ทั้งหมดในไฟล์เดียว
+# (ในบทเรียนเราสร้างผ่าน API/dashboard แต่ไฟล์นี้ให้เห็นภาพรวมว่ามีอะไรบ้าง
+#  จะใช้ Blueprint สร้างทั้งชุดก็ได้: Dashboard → New → Blueprint → เลือก repo นี้)
+databases:
+  - name: learn-todo-db
+    plan: free
+    region: singapore
+    databaseName: learn_todo
+    user: learn_todo
+
+services:
+  # 1) Backend API — Node.js
+  - type: web
+    name: learn-todo-api
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: learn-todo-db
+          property: connectionString
+      - key: NODE_VERSION
+        value: 20
+
+  # 2) Frontend — React (Vite) build เป็นไฟล์ static
+  - type: web
+    name: learn-todo-web
+    runtime: static
+    rootDir: web
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://learn-todo-api.onrender.com
