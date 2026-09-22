@@ -13,3 +13,7 @@ mobile/ios/.symlinks/
 mobile/ios/Flutter/ephemeral/
 mobile/android/.gradle/
 mobile/android/local.properties
+course/node_modules/
+course/slide-*.jpg
+course/sheet-*.jpg
+course/course-deck.pdf
