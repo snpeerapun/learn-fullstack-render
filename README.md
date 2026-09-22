@@ -1,6 +1,12 @@
 # Learn Fullstack — PostgreSQL + Node.js + React + Flutter บน Render
 
 โปรเจกต์ตัวอย่างสำหรับสอน "เขียนแอปที่ใช้งานได้จริง" ครบทั้ง 4 ชั้น
+
+**ลองของจริงได้เลย (deploy บน Render แล้ว)**
+- เว็บ: https://learn-todo-web.onrender.com
+- API: https://learn-todo-api.onrender.com/api/health
+- Repo: https://github.com/snpeerapun/learn-fullstack-render
+
 แอปคือ **Todo list** ง่าย ๆ (เพิ่ม / ติ๊กเสร็จ / ลบ) — เว็บและมือถือใช้ฐานข้อมูลเดียวกัน
 
 ```
@@ -159,6 +165,14 @@ Dashboard → **New → Blueprint** → เลือก repo → Render อ่�
 curl https://learn-todo-api.onrender.com/api/health     # ต้องได้ {"ok":true,...}
 open https://learn-todo-web.onrender.com
 ```
+
+## Render เหมาะกับอะไร
+
+| ใช้เป็น | เหมาะไหม | เหตุผล |
+|---|---|---|
+| server สอน / test / demo แอป | **เหมาะมาก** | ฟรี, มี HTTPS + URL จริงทันที, push แล้ว deploy เอง, มี Postgres ให้, ไม่ต้องดูแลเครื่อง |
+| staging ให้ลูกค้าลอง | เหมาะ (จ่าย Starter ~$7/เดือน/service) | ตัดปัญหาหลับ 15 นาที และ DB ฟรีหมดอายุ |
+| production จริง | ไม่แนะนำบนแผนฟรี | เครื่องหลับ, DB หมดอายุ 30 วัน, ไม่มี backup, อยู่ Singapore แต่ไม่มี CDN ไทย |
 
 ข้อควรรู้ของแผนฟรี
 - Web Service ฟรี **หลับเมื่อไม่มีคนใช้ 15 นาที** → request แรกช้า ~30-50 วิ (แอปมือถือตั้ง timeout 30 วิไว้แล้ว)
